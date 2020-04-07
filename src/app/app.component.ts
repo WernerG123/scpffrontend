@@ -19,4 +19,11 @@ export class AppComponent {
       console.log(data);
     })
   }
+
+  addIncidentHttps() {
+    this.http.post('https://102.130.118.84:1337/incidents', {reporter: this.reporter, description: this.description})
+    .subscribe(data => {
+      console.log(data);
+    })
+  }
 }
