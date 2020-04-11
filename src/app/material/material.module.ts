@@ -13,6 +13,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+// import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import { MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -30,7 +35,11 @@ import {MatListModule} from '@angular/material/list';
     MatToolbarModule,
     MatIconModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatTabsModule,
+    NgxMaterialTimepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     MatCardModule,
@@ -45,7 +54,11 @@ import {MatListModule} from '@angular/material/list';
     MatToolbarModule,
     MatIconModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatTabsModule,
+    NgxMaterialTimepickerModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialModule { }

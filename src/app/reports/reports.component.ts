@@ -12,4 +12,12 @@ export class ReportsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addReport() {
+    
+  }
+  
+  createReport() {
+
+  }
+
 }

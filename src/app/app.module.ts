@@ -8,6 +8,7 @@ import { MaterialModule } from './material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { ReportsModule } from './reports/reports.module';
+import { LookoutsModule } from './lookouts/lookouts.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReportsModule } from './reports/reports.module';
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
-    ReportsModule
+    ReportsModule,
+    LookoutsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
