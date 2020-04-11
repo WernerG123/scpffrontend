@@ -1,14 +1,14 @@
-<button mat-mini-fab (click)="createReport()">
+<button mat-mini-fab (click)="createReport()" id="addButton">
     <mat-icon>add</mat-icon>
 </button>
 
 
-<div>
+<div id="addCard" *ngIf="shouldAdd">
     <mat-card class="mat-elevation-z10" fxLayout="column">
         <div fxLayout="row" fxLayoutAlign="center center">
             <mat-form-field appearance="outline">
                 <mat-label>Choose date</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input matInput [matDatepicker]="picker" [(ngModel)]="date">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker touchUi #picker></mat-datepicker>
             </mat-form-field>
@@ -17,12 +17,12 @@
         <div fxLayout="column">
             <div fxLayoutAlign="start space-between">
                 <mat-label>Start: </mat-label>
-                <input [ngxTimepicker]="from">
+                <input [ngxTimepicker]="from" [(ngModel)]="shiftfrom">
                 <ngx-material-timepicker #from></ngx-material-timepicker>
             </div>
             <div>
                 <mat-label>End: </mat-label>
-                <input [ngxTimepicker]="to">
+                <input [ngxTimepicker]="to" [(ngModel)]="shiftto">
                 <ngx-material-timepicker #to></ngx-material-timepicker>
             </div>
         </div>
@@ -31,7 +31,7 @@
             <button mat-raised-button color="primary" (click)="addReport()">
                 <mat-icon>save</mat-icon> Add 
             </button>
-            <button mat-raised-button color="warn">
+            <button mat-raised-button color="warn" (click)="shouldAdd = false;">
                 <mat-icon>close</mat-icon> Cancel
             </button>
         </div>
