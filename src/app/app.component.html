@@ -1,49 +1,39 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')"
-               (closed)="events.push('close!')" role="navigation"
-               style="height: 100vh !important;">
-               <mat-nav-list>
-                <a mat-list-item (click)="sidenav.toggle();"><mat-icon>home</mat-icon> Home </a>
-                <mat-divider></mat-divider>
-                <a mat-list-item (click)="navToLookouts(); sidenav.toggle();"><mat-icon>warning</mat-icon> Lookouts </a>
-                <mat-divider></mat-divider>
-                <a mat-list-item (click)="navToReports(); sidenav.toggle();"><mat-icon>assignment</mat-icon> Reports </a>
-                <mat-divider></mat-divider>
-                <a mat-list-item><mat-icon>power_settings_new</mat-icon> Reports </a>
-                <mat-divider></mat-divider>
-             </mat-nav-list>
+  <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')"
+    role="navigation" style="height: 100vh !important;">
+    <mat-nav-list>
+      <a mat-list-item (click)="sidenav.toggle();">
+        <mat-icon>home</mat-icon> Home
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item (click)="navToLookouts(); sidenav.toggle();">
+        <mat-icon>warning</mat-icon> Lookouts
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item (click)="navToReports(); sidenav.toggle();">
+        <mat-icon>assignment</mat-icon> Reports
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item (click)="logout(); sidenav.toggle();">
+        <mat-icon>power_settings_new</mat-icon> Logout
+      </a>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content style="height: 100vh !important;">
-    <mat-toolbar>
-    <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center">
-      <div><button mat-mini-fab (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button></div>
-      <div>SCPF</div>
-      <div><button mat-mini-fab><mat-icon>settings</mat-icon></button></div>
-    </div>
+    <mat-toolbar *ngIf="checkLogin()">
+      <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center">
+        <div><button mat-mini-fab (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button></div>
+        <div>SCPF</div>
+        <div><button mat-mini-fab>
+            <mat-icon>settings</mat-icon>
+          </button></div>
+      </div>
     </mat-toolbar>
-    
+
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
-
-<!-- 
-<div fxFlex="100" fxLayout="column">
-  <div>
-    <mat-form-field appearance="outline">
-      <mat-label>Description</mat-label>
-      <input matInput [(ngModel)]="description">
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-form-field appearance="fill">
-      <mat-label>Reporter</mat-label>
-      <input matInput [(ngModel)]="reporter">
-    </mat-form-field>
-  </div>
-  <div>
-    <button mat-raised-button color="primary" (click)="addIncident()">Add</button>
-  </div>
-</div> -->

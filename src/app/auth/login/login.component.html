@@ -1,0 +1,22 @@
+<div style="height: 100vh;" fxLayoutAlign="center center">
+    <div>
+        <mat-card fxLayout="column" class="mat-elevation-z10">
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>User</mat-label>
+                    <input matInput [(ngModel)]="username">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" [(ngModel)]="password">
+                </mat-form-field>
+            </div>
+            <div fxLayoutAlign="center center">
+                <button mat-raised-button color="primary" (click)="login()">Login</button>
+            </div>
+        </mat-card>
+    </div>
+
+</div>

@@ -13,9 +13,15 @@ export class AppComponent {
   reporter = '';
   events: string[] = [];
   opened: boolean;
+  isLoggedIn = false;
 
   constructor(public http: HttpClient, public router: Router) {
-
+    if(!localStorage.getItem('isLoggedIn')) {
+      localStorage.setItem('isLoggedIn', 'false');
+      this.isLoggedIn = false;
+    } else if (localStorage.getItem('isLoggedIn') == 'true') {
+      this.isLoggedIn = true;
+    }
   }
   addIncident() {
     this.http.post('http://102.130.118.84:1337/incidents', {reporter: this.reporter, description: this.description})
@@ -23,12 +29,29 @@ export class AppComponent {
       console.log(data);
     })
   }
+
+  checkLogin() {
+    if(!localStorage.getItem('isLoggedIn')) {
+      localStorage.setItem('isLoggedIn', 'false');
+      this.isLoggedIn = false;
+      return false;
+    } else if (localStorage.getItem('isLoggedIn') == 'true') {
+      this.isLoggedIn = true;
+      return true;
+    }
+  }
+
   navToReports() {
     this.router.navigate(['/reports']);
   }
 
   navToLookouts() {
     this.router.navigate(['/lookouts']);
+  }
+
+  logout() {
+    localStorage.setItem('isLoggedIn', 'false');
+    this.router.navigate(['/login']);
   }
 
 }

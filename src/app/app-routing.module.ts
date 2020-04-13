@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ReportsComponent } from './reports/reports.component';
 import { LookoutsComponent } from './lookouts/lookouts.component';
+import { AuthComponent } from './auth/auth.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'lookouts',
     component: LookoutsComponent
+  },
+  {
+    path: 'login',
+    component: AuthComponent
   }
 ];
 

@@ -11,6 +11,7 @@ import { ReportsModule } from './reports/reports.module';
 import { LookoutsModule } from './lookouts/lookouts.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     ReportsModule,
     LookoutsModule,
+    AuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
