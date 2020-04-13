@@ -9,6 +9,11 @@ import { IncidentsComponent } from './reports/incidents/incidents.component';
 
 const routes: Routes = [
   {
+    path: '',
+    canActivate: [AuthGuard],
+    component: ReportsComponent
+  },
+  {
     path: 'reports',
     canActivate: [AuthGuard],
     component: ReportsComponent
