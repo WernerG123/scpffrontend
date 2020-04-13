@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reports',
@@ -17,7 +18,7 @@ export class ReportsComponent implements OnInit {
   displayedColumns: string[] = ['date', 'shiftfrom', 'shiftto', 'edit', 'delete'];
   dataSource: any;
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, public router: Router) { }
 
   ngOnInit(): void {
     this.getMyReports();
@@ -53,6 +54,10 @@ export class ReportsComponent implements OnInit {
         this.dataSource = this.myReports;
         console.log(this.myReports);
       })
+  }
+
+  modifyReport(id){
+    this.router.navigate(['/incidents', id]);
   }
 
   sanitizeData(myReports) {
